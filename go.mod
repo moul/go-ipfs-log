@@ -3,22 +3,22 @@ module berty.tech/go-ipfs-log
 go 1.18
 
 require (
-	github.com/btcsuite/btcd v0.22.1
-	github.com/hashicorp/golang-lru v0.5.4
-	github.com/ipfs/go-cid v0.3.2
+	github.com/btcsuite/btcd v0.23.4
+	github.com/hashicorp/golang-lru v0.6.0
+	github.com/ipfs/go-cid v0.4.0
 	github.com/ipfs/go-datastore v0.6.0
-	github.com/ipfs/go-ipld-cbor v0.0.5
+	github.com/ipfs/go-ipld-cbor v0.0.6
 	github.com/ipfs/go-ipld-format v0.4.0
 	github.com/ipfs/go-merkledag v0.6.0
-	github.com/ipfs/interface-go-ipfs-core v0.7.0
-	github.com/ipfs/kubo v0.16.0
-	github.com/libp2p/go-libp2p v0.23.3
-	github.com/multiformats/go-multibase v0.1.1
-	github.com/polydawn/refmt v0.0.0-20201211092308-30ac6d18308e
-	github.com/stretchr/testify v1.8.0
-	go.uber.org/goleak v1.1.12
-	golang.org/x/crypto v0.0.0-20220525230936-793ad666bf5e
-	golang.org/x/sync v0.0.0-20220722155255-886fb9371eb4
+	github.com/ipfs/interface-go-ipfs-core v0.11.1
+	github.com/ipfs/kubo v0.19.0
+	github.com/libp2p/go-libp2p v0.26.4
+	github.com/multiformats/go-multibase v0.2.0
+	github.com/polydawn/refmt v0.89.0
+	github.com/stretchr/testify v1.8.2
+	go.uber.org/goleak v1.2.1
+	golang.org/x/crypto v0.7.0
+	golang.org/x/sync v0.1.0
 )
 
 require (
