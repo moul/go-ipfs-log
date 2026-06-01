@@ -54,7 +54,7 @@ func NewKeystore(store datastore.Datastore) (*Keystore, error) {
 func (k *Keystore) HasKey(ctx context.Context, id string) (bool, error) {
 	storedKey, ok := k.cache.Peek(id)
 
-	if ok == false {
+	if !ok {
 		value, err := k.store.Get(ctx, datastore.NewKey(id))
 		if err != nil {
 			return false, errmsg.ErrKeyNotInKeystore.Wrap(err)

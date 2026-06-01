@@ -73,9 +73,7 @@ func (s *boxed) OpenWithNonce(payload []byte, nonce []byte) ([]byte, error) {
 	}
 
 	nonceArr := [SecretBoxNonceSize]byte{}
-	for i, c := range nonce {
-		nonceArr[i] = c
-	}
+	copy(nonceArr[:], nonce)
 
 	dec, ok := secretbox.Open(nil, payload, &nonceArr, (*[32]byte)(s))
 	if !ok || dec == nil {
@@ -91,9 +89,7 @@ func (s *boxed) SealWithNonce(encrypted []byte, nonce []byte) ([]byte, error) {
 	}
 
 	nonceArr := [SecretBoxNonceSize]byte{}
-	for i, c := range nonce {
-		nonceArr[i] = c
-	}
+	copy(nonceArr[:], nonce)
 
 	enc := secretbox.Seal(nil, encrypted, &nonceArr, (*[32]byte)(s))
 	if enc == nil {
@@ -109,9 +105,7 @@ func NewSecretbox(key []byte) (SharedKey, error) {
 	}
 
 	var keyArr [SecretBoxKeySize]byte
-	for i, c := range key {
-		keyArr[i] = c
-	}
+	copy(keyArr[:], key)
 
 	return (*boxed)(&keyArr), nil
 }
