@@ -35,6 +35,11 @@ func newRepo() (ipfs_repo.Repo, error) {
 	// Do not bootstrap on ipfs node
 	cfg.Bootstrap = []string{}
 
+	// Clear the datastore spec so kubo's sweeping provider falls back to an
+	// in-memory keystore datastore instead of trying to open a "levelds"
+	// backend, which the in-memory mock repo cannot provide.
+	cfg.Datastore.Spec = nil
+
 	return &ipfs_repo.Mock{
 		D: dssync.MutexWrap(datastore.NewMapDatastore()),
 		C: *cfg,

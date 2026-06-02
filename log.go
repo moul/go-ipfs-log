@@ -79,12 +79,12 @@ func minInt(x, y int) int {
 }
 
 func maxClockTimeForEntries(entries []iface.IPFSLogEntry, defValue int) int {
-	max := defValue
+	maxTime := defValue
 	for _, e := range entries {
-		max = maxInt(e.GetClock().GetTime(), max)
+		maxTime = maxInt(e.GetClock().GetTime(), maxTime)
 	}
 
-	return max
+	return maxTime
 }
 
 // NewLog Creates creates a new IPFSLog for a given identity
@@ -633,10 +633,7 @@ func difference(entriesA iface.IPFSLogOrderedEntries, headsA []iface.IPFSLogEntr
 	traversed := map[string]struct{}{}
 	res := entry.NewOrderedMap()
 
-	for {
-		if len(stack) == 0 {
-			break
-		}
+	for len(stack) > 0 {
 		hash := stack[0]
 		stack = stack[1:]
 

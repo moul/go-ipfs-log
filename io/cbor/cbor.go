@@ -243,7 +243,6 @@ func (i *IOCbor) Write(ctx context.Context, ipfs coreiface.CoreAPI, obj interfac
 		}
 
 		obj = jsonable.ToJsonableEntry(o)
-		break
 	}
 
 	cborNode, err := cbornode.WrapObject(obj, math.MaxUint64, -1)

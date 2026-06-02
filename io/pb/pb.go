@@ -30,14 +30,12 @@ func (p *pb) Write(ctx context.Context, ipfs coreiface.CoreAPI, obj interface{},
 		if err != nil {
 			return cid.Undef, err
 		}
-		break
 
 	case *iface.JSONLog:
 		payload, err = json.Marshal(o)
 		if err != nil {
 			return cid.Undef, err
 		}
-		break
 	}
 
 	node := &dag.ProtoNode{}

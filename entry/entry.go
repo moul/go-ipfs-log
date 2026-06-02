@@ -286,7 +286,7 @@ func toBuffer(e *iface.Hashable) ([]byte, error) {
 		},
 	}
 
-	if e.AdditionalData != nil && len(e.AdditionalData) > 0 {
+	if len(e.AdditionalData) > 0 {
 		data["additional_data"] = e.AdditionalData
 	}
 
